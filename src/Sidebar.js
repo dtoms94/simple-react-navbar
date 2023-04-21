@@ -25,7 +25,7 @@ import {
 
 export default function Sidebar() {
   return (
-    <Navbar collapsable>
+    <Navbar collapsible>
       <NavbarHeader 
           shadowed
           basicBrand={{text: 'SN', color: 'purple'}}
@@ -58,6 +58,7 @@ export default function Sidebar() {
                 text: '99+',
                 color: 'red'
               }}
+              asButton
             />
             <NavbarMenuItem
               link='#wow'
@@ -77,6 +78,7 @@ export default function Sidebar() {
               description='Review great requests'
               icon={<IconGitPullRequest />}
               badge={{ text: 'New', color: 'purple' }}
+              asButton
             />
           </NavbarSection>
           <NavbarSection title='Execution'>
