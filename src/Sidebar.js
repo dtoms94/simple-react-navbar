@@ -25,11 +25,11 @@ import {
 
 export default function Sidebar() {
   return (
-    <Navbar collapsable compact>
+    <Navbar collapsable>
       <NavbarHeader 
           shadowed
           basicBrand={{text: 'SN', color: 'purple'}}
-          title='Simple Navbar'
+          title='Simple Nav'
           tagline='Collapsible'
         />
         <NavbarContent scrollable>

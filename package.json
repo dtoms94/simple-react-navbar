@@ -1,8 +1,10 @@
 {
-  "name": "simple-react-navbar",
-  "version": "0.1.0",
-  "private": true,
+  "name": "react-vertical-navbar",
+  "description": "A simple vertical navbar for react apps",
+  "version": "1.0.0",
+  "private": false,
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "@tabler/icons-react": "^2.16.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -14,7 +16,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "del dist && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
@@ -49,6 +51,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
     "@storybook/addon-essentials": "7.0.6",
     "@storybook/addon-interactions": "7.0.6",
     "@storybook/addon-links": "7.0.6",
@@ -58,8 +63,16 @@
     "@storybook/react-webpack5": "7.0.6",
     "@storybook/testing-library": "0.0.14-next.2",
     "babel-plugin-named-exports-order": "0.0.2",
+    "cross-env": "^7.0.3",
     "prop-types": "15.8.1",
     "storybook": "7.0.6",
     "webpack": "5.79.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dtoms94/simple-react-navbar"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [ "dist", "README.md" ]
 }
