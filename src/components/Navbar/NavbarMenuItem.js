@@ -7,6 +7,7 @@ export default function NavbarMenuItem({
   description,
   icon,
   badge,
+  disabled,
   asButton,
   onClick
 }) {
@@ -35,14 +36,14 @@ export default function NavbarMenuItem({
   )
 
   return (
-    <li className={styles.navbarMenuItem} data-tooltip={title}>
+    <li className={`${styles.navbarMenuItem} ${disabled && styles.navbarMenuItemDisabled}`} data-tooltip={title}>
       {
         asButton ?
-        <button className={styles.navbarMenuItemLink} onClick={onClick}>
+        <button className={styles.navbarMenuItemLink} onClick={!disabled && onClick} disabled={disabled}>
           {content}
         </button>
         :
-        <a href={link} className={styles.navbarMenuItemLink}>
+        <a href={!disabled && link} className={styles.navbarMenuItemLink} disabled={disabled}>
           {content}
         </a>
       }

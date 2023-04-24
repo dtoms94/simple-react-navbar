@@ -227,6 +227,14 @@
   align-items: center;
 }
 
+.navbarMenuItemDisabled svg {
+  opacity: 0.4;
+}
+
+.navbarMenuItemDisabled p {
+  opacity: 0.4;
+}
+
 .navbarIcon {
   min-width: 30px;
   width: 30px;

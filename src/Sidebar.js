@@ -27,7 +27,7 @@ import {
 
 export default function Sidebar() {
 
-  const [collapsed, setCollapsed] = useState(true)
+  const [collapsed, setCollapsed] = useState(false)
 
   const toggleCollapsed = () => {
     setCollapsed(prev => !prev)
@@ -35,7 +35,7 @@ export default function Sidebar() {
 
   return (
     <Navbar
-      collapsed={collapsed} 
+      collapsed={collapsed}
       compact
     >
       <NavbarHeader 
@@ -76,6 +76,7 @@ export default function Sidebar() {
               link='#wow'
               title='Milestones'
               icon={<IconMountain />}
+              disabled
             />
 
             </NavbarSubMenu>
@@ -83,6 +84,7 @@ export default function Sidebar() {
               link='#wow'
               title='Shared Steps'
               icon={<IconArrowFork />}
+              disabled
             />
             <NavbarMenuItem
               link='#wow'
@@ -91,6 +93,7 @@ export default function Sidebar() {
               icon={<IconGitPullRequest />}
               badge={{ text: 'New', color: 'purple' }}
               asButton
+              disabled
             />
           </NavbarSection>
           <NavbarSection title='Execution'>
@@ -204,7 +207,7 @@ export default function Sidebar() {
             <NavbarMenuItem
               asButton
               title='Close Submenu'
-              icon={collapsed ? <IconArrowLeft /> : <IconArrowRight/>}
+              icon={collapsed ? <IconArrowRight/> : <IconArrowLeft />}
               onClick={toggleCollapsed}
             />
         </NavbarFooter>

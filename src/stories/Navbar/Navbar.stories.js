@@ -5,7 +5,13 @@ import NavbarSection from '../../components/Navbar/NavbarSection'
 import NavbarMenuItem from '../../components/Navbar/NavbarMenuItem'
 import NavbarFooter from '../../components/Navbar/NavbarFooter'
 
-import { Icon24Hours, IconAB, IconSettings, IconMessage } from '@tabler/icons-react';
+import { 
+  IconGraph, 
+  IconHeartHandshake, 
+  IconShoppingBag, 
+  IconChartAreaLine,
+  IconClick
+} from '@tabler/icons-react';
 
 
 //👇 This default export determines where your story goes in the story list
@@ -18,7 +24,7 @@ export default {
   component: Navbar,
 };
 
-export const CompleteNavbar = {
+export const StaticExpandedNavbar = {
   render: (args) => (
     <Navbar>
       <NavbarHeader
@@ -27,30 +33,55 @@ export const CompleteNavbar = {
           color: 'maroon'
         }}
         title='Simple Nav'
-        tagline='Collapsible Too!'
+        tagline='w/ Comfort padding'
         shadowed
       />
       <NavbarContent>
         <NavbarSection
-          title='General'
+          title='Dashboards'
         >
           <NavbarMenuItem
-            link='#about'
-            icon={<IconSettings />}
-            title='Settings'
-            description='Controls & Preferences'
-            badge={{
-              text: 'new',
-              color: 'purple'
-            }}
+            link='/dashboards/analytics'
+            icon={<IconGraph />}
+            title='Analytics'
           />
           <NavbarMenuItem
-            link='#about'
-            icon={<IconSettings />}
-            title='Test'
-            description='Controls & Preferences'
+            link='/dashboards/CRM'
+            icon={<IconHeartHandshake />}
+            title='CRM'
+            description='Customer Relationship Management'
+          />
+          <NavbarMenuItem
+            link='/dashboards/ecommerce'
+            icon={<IconShoppingBag />}
+            title='eCommerce'
+            description='eCommerce Partners'
             badge={{
-              text: 'new',
+              text: 'New',
+              color: 'darkorange'
+            }}
+          />
+        </NavbarSection>
+        <NavbarSection
+          title='Widgets'
+        >
+          <NavbarMenuItem
+            link='/widgets/graphs'
+            icon={<IconChartAreaLine />}
+            title='Graphs'
+          />
+          <NavbarMenuItem
+            link='/widgets/buttons'
+            icon={<IconClick />}
+            title='Buttons'
+          />
+          <NavbarMenuItem
+            link='/widgets/custom'
+            icon={<IconShoppingBag />}
+            title='Custom'
+            description='Create your own widget'
+            badge={{
+              text: 'PRO',
               color: 'purple'
             }}
           />

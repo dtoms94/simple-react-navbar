@@ -15,10 +15,10 @@ const themeMap = {
 }
 
 export default function Navbar({ children, expandedWidth, collapsed, collapsible, compact, theme }) {
-  const [open, setOpen] = useState(!collapsed)
+  const [closed, setClosed] = useState(collapsed)
 
   const toggleNavbarOpen = () => {
-    setOpen(prev => !prev)
+    setClosed(prev => !prev)
   }
 
   useEffect(() => {
@@ -35,13 +35,13 @@ export default function Navbar({ children, expandedWidth, collapsed, collapsible
   }, [theme])
 
   useEffect(() => {
-    setOpen(collapsed)
+    setClosed(collapsed)
   }, [collapsed])
 
   return (
-    <div className={`${styles.navbar} ${((collapsed && !open) || !open) && styles.navbarCollapsed} ${compact && styles.navbarCompact}`} style={expandedWidth && { width: expandedWidth, minWidth: expandedWidth, maxWidth: expandedWidth }}>
+    <div className={`${styles.navbar} ${closed && styles.navbarCollapsed} ${compact && styles.navbarCompact}`} style={expandedWidth && { width: expandedWidth, minWidth: expandedWidth, maxWidth: expandedWidth }}>
       <div className={styles.navbarContainer}>
-        {collapsible && <NavbarCollapseButton toggleOpen={toggleNavbarOpen} open={open} />}
+        {collapsible && <NavbarCollapseButton toggleOpen={toggleNavbarOpen} open={!closed} />}
         { children }
       </div>
     </div>
