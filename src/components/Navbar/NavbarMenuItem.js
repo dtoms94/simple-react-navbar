@@ -7,7 +7,8 @@ export default function NavbarMenuItem({
   description,
   icon,
   badge,
-  asButton
+  asButton,
+  onClick
 }) {
 
   const content = (
@@ -37,7 +38,7 @@ export default function NavbarMenuItem({
     <li className={styles.navbarMenuItem} data-tooltip={title}>
       {
         asButton ?
-        <button className={styles.navbarMenuItemLink}>
+        <button className={styles.navbarMenuItemLink} onClick={onClick}>
           {content}
         </button>
         :

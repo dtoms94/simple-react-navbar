@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import NavbarHeader from './components/Navbar/NavbarHeader'
 import NavbarContent from './components/Navbar/NavbarContent'
@@ -20,12 +20,24 @@ import {
   IconBox,
   IconBug,
   IconBook2,
-  IconMountain
+  IconMountain,
+  IconArrowLeft,
+  IconArrowRight
 } from '@tabler/icons-react'
 
 export default function Sidebar() {
+
+  const [collapsed, setCollapsed] = useState(true)
+
+  const toggleCollapsed = () => {
+    setCollapsed(prev => !prev)
+  }
+
   return (
-    <Navbar collapsible>
+    <Navbar
+      collapsed={collapsed} 
+      compact
+    >
       <NavbarHeader 
           shadowed
           basicBrand={{text: 'SN', color: 'purple'}}
@@ -190,9 +202,10 @@ export default function Sidebar() {
               icon={<IconBook2 />}
             />
             <NavbarMenuItem
-              link='#wow'
-              title='Milestones'
-              icon={<IconMountain />}
+              asButton
+              title='Close Submenu'
+              icon={collapsed ? <IconArrowLeft /> : <IconArrowRight/>}
+              onClick={toggleCollapsed}
             />
         </NavbarFooter>
     </Navbar>
