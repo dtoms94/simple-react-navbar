@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import NavbarHeader from './components/Navbar/NavbarHeader'
 import NavbarContent from './components/Navbar/NavbarContent'
@@ -25,7 +25,28 @@ import {
   IconArrowRight
 } from '@tabler/icons-react'
 
-export default function Sidebar() {
+export default function Sidebar({ settings }) {
+
+  const {
+    collapsedProp,
+    collapsible,
+    collapseAsButton,
+    compact,
+    scrollContent,
+    darkTheme,
+    shadowedHeader,
+    shadowedFooter
+  } = settings
+
+  const theme = darkTheme ? 
+    {
+      backgroundColor: '#333',
+      textColor: '#eee',
+      hoverColor: '#444',
+      shadowColor: '#222',
+    } 
+    :
+    null
 
   const [collapsed, setCollapsed] = useState(false)
 
@@ -33,18 +54,24 @@ export default function Sidebar() {
     setCollapsed(prev => !prev)
   }
 
+  useEffect(() => {
+    setCollapsed(collapsedProp)
+  }, [collapsedProp])
+
   return (
     <Navbar
       collapsed={collapsed}
-      compact
+      compact={compact}
+      collapsible={collapsible && !collapseAsButton}
+      theme={theme}
     >
       <NavbarHeader 
-          shadowed
+          shadowed={shadowedHeader}
           basicBrand={{text: 'SN', color: 'purple'}}
           title='Simple Nav'
           tagline='Collapsible'
         />
-        <NavbarContent scrollable>
+        <NavbarContent scrollable={scrollContent}>
           <NavbarSection title='Tests'>
             <NavbarMenuItem
               link='#test'
@@ -198,18 +225,18 @@ export default function Sidebar() {
           </NavbarSection>
 
         </NavbarContent>
-        <NavbarFooter shadowed>
+        <NavbarFooter shadowed={shadowedFooter}>
         <NavbarMenuItem
               link='#wow'
               title='Requirements'
               icon={<IconBook2 />}
             />
-            <NavbarMenuItem
+            {collapseAsButton && <NavbarMenuItem
               asButton
               title='Close Submenu'
               icon={collapsed ? <IconArrowRight/> : <IconArrowLeft />}
               onClick={toggleCollapsed}
-            />
+            />}
         </NavbarFooter>
     </Navbar>
   )

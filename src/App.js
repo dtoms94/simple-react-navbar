@@ -1,46 +1,41 @@
 import logo from './logo.svg';
 import './App.css';
 
+import { useState } from 'react'
+
 import AppShell from './components/AppShell/AppShell';
 import Sidebar from './Sidebar';
+import Playground from './Playground'
 
 function App() {
+
+  const [settings, setSettings] = useState({
+    collapsedProp: false,
+    collapsible: false,
+    collapseAsButton: false,
+    compact: false,
+    scrollContent: false,
+    darkTheme: false,
+    shadowedHeader: false,
+    shadowedFooter: false
+  })
+
+  const toggleSetting = (settingToToggle, value) => {
+    setSettings(prevSettings => ({
+      ...prevSettings,
+      [settingToToggle]: value
+    }))
+  }
+
   return (
     <AppShell
-      navbar={<Sidebar />}
+      navbar={
+        <Sidebar
+          settings={settings}
+        />
+      }
     >
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Playground toggleSettings={toggleSetting} />
     </AppShell>
     
   );

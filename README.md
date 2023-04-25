@@ -5,6 +5,9 @@ A simple vertical navbar for react. Just to keep myself from constantly receatin
 
 ![Image of vertical navbar](https://i.imgur.com/TqMAwqa.png?raw=true "Vertical Navbar")
 
+
+
+
 ## Installation
 
 Install react-vertical-navbar with npm
@@ -12,7 +15,11 @@ Install react-vertical-navbar with npm
 ```bash
   npm install react-vertical-navbar
 ```
-  
+    
+## Demo
+
+https://dtoms94.github.io/simple-react-navbar/
+
 
 ## Features
 
@@ -21,9 +28,11 @@ Install react-vertical-navbar with npm
 * That's about all...
 
 ## Limitations
+* No mobile support yet
 * Theming is pretty basic and not well optimized
+* Can only nest one level of sub-menus
 
-  
+
 ## Getting Started
 
 AppShell is an included component for wrapping the navbar and your app to work together. Simply place your app code within AppShell and pass your created navbar to AppShell to get up and running!
@@ -55,7 +64,9 @@ function App() {
 // Sidebar.js
 
 import React, { useState } from 'react'
-import { Navbar, NavbarMenuItem, NavbarFooter } from 'react-vertical-navbar'
+import Navbar from './components/Navbar/Navbar'
+import NavbarMenuItem from './components/Navbar/NavbarMenuItem'
+import NavbarFooter from './components/Navbar/NavbarFooter'
 
 import { 
   IconArrowLeft,
