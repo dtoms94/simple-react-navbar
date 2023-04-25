@@ -3,6 +3,8 @@
 
 A simple vertical navbar for react. Just to keep myself from constantly receating it for my personal projects!
 
+![Image of vertical navbar](https://i.imgur.com/TqMAwqa.png?raw=true "Vertical Navbar")
+
 ## Features
 
 * Collapsible
@@ -10,9 +12,7 @@ A simple vertical navbar for react. Just to keep myself from constantly receatin
 * That's about all...
 
 ## Limitations
-* Theming!
-    * Non-existant :(
-    * BUT keep an eye out ;)
+* Theming is pretty basic and not well optimized
 
 
 
@@ -31,8 +31,7 @@ AppShell is an included component for wrapping the navbar and your app to work t
 ```javascript
 // App.js
 
-import AppShell from 'react-vertical-navbar'
-import Navbar from 'react-vertical-navbar' 
+import { AppShell, Navbar } from 'react-vertical-navbar'
 
 function App() {
   return (
@@ -49,3 +48,45 @@ function App() {
 }
 ```
 
+### Tips & Tricks
+
+#### Custom Collapse Button
+```javascript
+// Sidebar.js
+
+import React, { useState } from 'react'
+import Navbar from './components/Navbar/Navbar'
+import NavbarMenuItem from './components/Navbar/NavbarMenuItem'
+import NavbarFooter from './components/Navbar/NavbarFooter'
+
+import { 
+  IconArrowLeft,
+  IconArrowRight
+} from '@tabler/icons-react'
+
+export default function Sidebar() {
+
+  const [collapsed, setCollapsed] = useState(false)
+
+  const toggleCollapsed = () => {
+    setCollapsed(prev => !prev)
+  }
+
+  return (
+    <Navbar
+      collapsed={collapsed}
+    >
+      {...}
+      <NavbarFooter>
+        <NavbarMenuItem
+          asButton
+          title='Close Submenu'
+          icon={collapsed ? <IconArrowRight/> : <IconArrowLeft />}
+          onClick={toggleCollapsed}
+        />
+      </NavbarFooter>
+    </Navbar>
+  )
+}
+
+```
