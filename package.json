@@ -23,6 +23,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "homepage": "https://dtoms94.github.io/simple-react-navbar/",
   "eslintConfig": {
     "extends": [
       "react-app",
