@@ -16,7 +16,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "del dist && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files",
+    "build-npm": "del dist && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
