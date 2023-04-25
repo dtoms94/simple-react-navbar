@@ -37,8 +37,6 @@ export default function Sidebar() {
     <Navbar
       collapsed={collapsed}
       compact
-      collapsible
-      expandedWidth={350}
     >
       <NavbarHeader 
           shadowed
