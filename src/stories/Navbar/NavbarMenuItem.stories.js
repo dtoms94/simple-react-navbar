@@ -20,7 +20,7 @@ const exampleIcons = {
   'IconMessage': <IconMessage />
 }
 
-export const Primary = {
+export const Playground = {
   render: (args) => (
     <Navbar expandedWidth={args.Width}>
       <NavbarMenuItem
@@ -29,6 +29,7 @@ export const Primary = {
         description={args.Description}
         badge={args.Badge}
         icon={args.Icon ? exampleIcons[args.Icon] : <IconSettings />}
+        disabled={args.Disabled}
       />
     </Navbar>
   ),
@@ -44,6 +45,7 @@ export const Primary = {
     Description: '',
     Badge: undefined,
     Width: 250,
+    Disabled: false
   }
 };
 
@@ -310,6 +312,37 @@ export const CompactAndCollapsed = {
         description={args.Description}
         badge={args.Badge}
         icon={args.Icon ? exampleIcons[args.Icon] : <IconMessage />}
+      />
+    </Navbar>
+  ),
+  argTypes: {
+    Icon: {
+      control: 'select',
+      options: ['IconSettings', 'Icon24Hours', 'IconAB'],
+    },
+  },
+  args: {
+    Link: '/messages',
+    Title: 'Settings',
+    Description: 'Friends & Family',
+    Badge: {
+      text: 'New',
+      color: 'navy'
+    },
+    Width: 250,
+  }
+};
+
+export const Disabled = {
+  render: (args) => (
+    <Navbar>
+      <NavbarMenuItem
+        link={args.Link}
+        title={args.Title}
+        description={args.Description}
+        badge={args.Badge}
+        icon={args.Icon ? exampleIcons[args.Icon] : <IconMessage />}
+        disabled
       />
     </Navbar>
   ),
