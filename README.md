@@ -64,9 +64,11 @@ function App() {
 // Sidebar.js
 
 import React, { useState } from 'react'
-import Navbar from './components/Navbar/Navbar'
-import NavbarMenuItem from './components/Navbar/NavbarMenuItem'
-import NavbarFooter from './components/Navbar/NavbarFooter'
+import { 
+  Navbar, 
+  NavbarMenuItem, 
+  NavbarFooter 
+} from 'react-vertical-navbar'
 
 import { 
   IconArrowLeft,
