@@ -9,7 +9,8 @@ export default function NavbarMenuItem({
   badge,
   disabled,
   asButton,
-  onClick
+  onClick,
+  component
 }) {
 
   const content = (
@@ -42,6 +43,17 @@ export default function NavbarMenuItem({
         <button className={styles.navbarMenuItemLink} onClick={!disabled && onClick} disabled={disabled}>
           {content}
         </button>
+        :
+        component ?
+        React.cloneElement(
+          component,
+          {
+            to: !disabled && link,
+            className: styles.navbarMenuItemLink,
+            disabled: disabled
+          },
+          content
+        )
         :
         <a href={!disabled && link} className={styles.navbarMenuItemLink} disabled={disabled}>
           {content}
